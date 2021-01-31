@@ -64,6 +64,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+   'skyspider.pipelines.DuplicatesPipeline': 100,
    'skyspider.pipelines.SaveQuotesPipeline': 300,
 }
 

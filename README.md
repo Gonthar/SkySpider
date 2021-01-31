@@ -7,8 +7,8 @@ Example use: `scrapy crawl quotes`
 For file output: `scrapy crawl quotes -o quotes.json`
 
 ## Development plan
-* Add a database for item storage
-* Ensure uniqueness of entries, remove duplicates
+* ~~Add a database for item storage~~
+* ~~Ensure uniqueness of entries, remove duplicates~~
 * Develop a flight item
 * Make a list of flight/airline related sites to scrape
 * Develop first flight spider

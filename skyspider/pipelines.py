@@ -52,3 +52,17 @@ class SaveQuotesPipeline(object):
 
         return item
 
+class DuplicatesPipeline(object):
+    def __init__(self):
+        engine = db_connect()
+        create_table(engine)
+        self.Session = sessionmaker(bind = engine)
+
+    def process_item(self, item, spider):
+        session = self.Session()
+        existing_quote = session.query(Quote).filter_by(quote_content = item["quote_content"]).first()
+        if existing_quote is not None:
+            raise DropItem("Duplicate item found: %s" % item["quote_content"])
+        else:
+            return item
+        session.close()
