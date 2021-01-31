@@ -12,6 +12,7 @@ BOT_NAME = 'skyspider'
 SPIDER_MODULES = ['skyspider.spiders']
 NEWSPIDER_MODULE = 'skyspider.spiders'
 
+CONNECTION_STRING = 'sqlite:///scrapy_quotes.db'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'skyspider (+http://www.yourdomain.com)'
@@ -62,9 +63,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'skyspider.pipelines.SkyspiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'skyspider.pipelines.SaveQuotesPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
